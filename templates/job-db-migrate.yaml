@@ -68,6 +68,12 @@ spec:
                   key: redis-password
             - name: "PORT"
               value: {{ .Values.mastodon.web.port | quote }}
+            {{- if (.Values.postgresql.connectionPool.enabled) }}
+            - name: "DB_NAME"
+              value: {{ .Values.postgresql.connectionPool.databaseNameForMigration }}
+            - name: "DB_PORT"
+              value: {{ .Values.postgresql.connectionPool.databasePortForMigration | quote }}
+            {{- end }}
           {{- if (not .Values.mastodon.s3.enabled) }}
           volumeMounts:
             - name: assets
