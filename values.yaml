@@ -252,7 +252,6 @@ postgresql:
   enabled: true
   # postgresqlHostname: preexisting-postgresql
   # postgresqlPort: 5432
-  sslMode: null
   auth:
     database: mastodon_production
     username: mastodon
