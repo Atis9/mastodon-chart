@@ -62,6 +62,8 @@ spec:
                   key: redis-password
             - name: "PORT"
               value: {{ .Values.mastodon.streaming.port | quote }}
+            - name: "DB_SSLMODE" # FIXME: https://github.com/mastodon/mastodon/commit/be1792e1d45fd32c037195d3d03f09fbd4dbf00e#diff-f9eb75341ce6bbfb6d0468e132684dc0b0d86cb8e26d9460602563cc46115c49R113
+              value: no-verify
           ports:
             - name: streaming
               containerPort: {{ .Values.mastodon.streaming.port }}
