@@ -15,7 +15,7 @@ data:
   DB_NAME: {{ .Values.postgresql.auth.database }}
   DB_POOL: {{ include "mastodon.maxDbPool" . }}
   DB_USER: {{ .Values.postgresql.auth.username }}
-  {{- with .Value.postgresql.sslMode }}
+  {{- with .Values.postgresql.sslMode }}
   DB_SSLMODE: {{ . }}
   {{- end }}
   PREPARED_STATEMENTS: {{ .Values.mastodon.preparedStatements | quote }}
